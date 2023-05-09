@@ -5,22 +5,19 @@
 <div class="card">
 	<div class="top-group">
 		<div class="title">
-			<div class="logo">
-				<img src={KubelLogo} alt="Paint Brush Icon" />
-			</div>
+			<img src={KubelLogo} alt="Paint Brush Icon" />
 			<h2>Kubel.io</h2>
 		</div>
 		<h3>
-			<span style="color: #30A8FF">Svelte</span> -
-			<span style="color: #FE9A00">NodeJS</span> -
-			<span style="color: #9A99FF">MongoDB</span> -
-			<span style=" color: #F24E1E">Figma</span>
+			<span style="color: #f73c00">Svelte</span> -
+			<span style="color: #7cc327">Node.js</span> -
+			<span style="color: #00ed64">MongoDB</span>
 		</h3>
 	</div>
 	<p>
-		Starting off in crowdsourced contests, I evolved into working freelance and under contracts. My
-		works include: book covers, web UIs, logos & brand identities, animated videos, 2d asset packs
-		and banners.
+		For my first full-stack project, I created Kubel, a daily puzzle game featuring a 2D Rubik's
+		cube, offering an enjoyable challenge. Competitive players can aim for top spots on the
+		leaderboard.
 	</p>
 
 	<a href="">Learn More ></a>
@@ -60,24 +57,7 @@
 	.title img {
 		width: 45px;
 		aspect-ratio: 1;
-	}
-
-	.title .logo {
-		line-height: 0;
-		position: relative;
-		z-index: 1;
-	}
-
-	.title .logo::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 80%;
-		height: 80%;
-		background-image: linear-gradient(to bottom right, blue, red, yellow, white);
-		filter: blur(15px);
-		z-index: -1;
+		filter: drop-shadow(0px 0px 5px rgba(69, 180, 216, 0.3));
 	}
 
 	h3 {

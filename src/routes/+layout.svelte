@@ -31,11 +31,13 @@
 
 	:global(html) {
 		color-scheme: dark;
+
 		--title-color-primary: #fff;
 		--title-color-secondary: #0a7eff;
 
 		--text-color-primary: #fff;
 		--text-color-secondary: #a4becb;
+		--text-color-tertiary: #3d7f90;
 
 		--link-color: #608eea;
 		--link-color-hover: #0a7eff;
@@ -46,7 +48,7 @@
 		--background-color-primary: #050811;
 		--background-color-secondary: #ffffff;
 
-		--card-background-color-primary: rgba(38, 59, 90, 0.5);
+		--card-background-color-primary: #263b5a80;
 		--card-stroke-color-primary: #263b5a;
 	}
 

@@ -41,6 +41,17 @@
 		touchStartY = event.touches[0].clientY;
 	};
 
+	const handleResize = () => {
+		maxY = spaceBackground.clientHeight - window.innerHeight * 0.8;
+		if (scrollAmount < 0) {
+			scrollAmount = 0;
+		} else if (scrollAmount > maxY) {
+			scrollAmount = maxY;
+		}
+		spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
+		handleScroll();
+	};
+
 	const handleScroll = () => {
 		if (window.scrollY >= window.innerHeight * 0.8 - 70) {
 			snapToHeader.set(true);
@@ -50,23 +61,19 @@
 	};
 
 	onMount(() => {
-		window.addEventListener('wheel', handleWheelScroll, { passive: false });
-		window.addEventListener('scroll', handleScroll, { passive: false });
-		window.addEventListener('touchstart', handleTouchStart, { passive: false });
-		window.addEventListener('touchmove', handleTouchMove, { passive: false });
 		maxY = spaceBackground.clientHeight - window.innerHeight * 0.8;
-		window.addEventListener('resize', () => {
-			maxY = spaceBackground.clientHeight - window.innerHeight * 0.8;
-		});
 		if (window.scrollY > 0) {
 			scrollAmount = maxY;
 			spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
 		}
+		window.addEventListener('wheel', handleWheelScroll, { passive: false });
+		window.addEventListener('scroll', handleScroll, { passive: false });
+		window.addEventListener('touchstart', handleTouchStart, { passive: false });
+		window.addEventListener('touchmove', handleTouchMove, { passive: false });
+		window.addEventListener('resize', handleResize);
 		return () => {
 			window.removeEventListener('wheel', handleWheelScroll);
-			window.removeEventListener('resize', () => {
-				maxY = spaceBackground.clientHeight - window.innerHeight * 0.8;
-			});
+			window.removeEventListener('resize', handleResize);
 			window.removeEventListener('scroll', handleScroll);
 			window.removeEventListener('touchstart', handleTouchStart);
 			window.removeEventListener('touchmove', handleTouchMove);

@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import GraphicDesign from './GraphicDesign.svelte';
 	import Kubel from './Kubel.svelte';
+	import Ideas from './Ideas.svelte';
+
 	let opacity = 1;
 	let transitionPoint: number;
 
@@ -15,7 +17,6 @@
 	}
 
 	onMount(() => {
-		// transitionPoint = window.innerHeight * 0.8 - 70;
 		transitionPoint = window.innerHeight * 0.3;
 		handleScroll();
 		window.addEventListener('scroll', handleScroll);
@@ -30,22 +31,20 @@
 	<div class="projects">
 		<GraphicDesign />
 		<Kubel />
-		<GraphicDesign />
+		<Ideas />
 	</div>
 	<div class="background" style="opacity: {opacity};" />
 </div>
 
 <style>
 	.container {
-		background-color: var(--background-color-primary);
 		margin-top: -40px;
-		padding-top: calc(20vh + 70px);
-		padding-top: calc(20vhl + 70px);
-		padding-bottom: calc(20vh + 70px);
-		padding-bottom: calc(20vhl + 70px);
+		padding-top: 50vh;
+		padding-top: 50vhl;
+		padding-bottom: 20vh;
+		padding-bottom: 20vhl;
 		padding-left: 20px;
 		padding-right: 20px;
-		/* padding-bottom: 100px; */
 		position: relative;
 		display: flex;
 		flex-direction: column;
