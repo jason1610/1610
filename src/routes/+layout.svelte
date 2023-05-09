@@ -1,17 +1,22 @@
 <script lang="ts">
 	import Header from '../components/Header.svelte';
+	import Footer from '../components/Footer.svelte';
 </script>
 
 <Header />
 <main>
 	<slot />
 </main>
+<Footer />
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 	@font-face {
 		font-family: 'Lavoir';
-		src: url('../fonts/Lavoir.otf');
+		src: url('../assets/fonts/Lavoir.otf');
 	}
+
 	:global(header) {
 		margin: 0;
 		padding: 0;
@@ -20,28 +25,43 @@
 	:global(body) {
 		margin: 0;
 		padding: 0;
+		font-family: 'Roboto', sans-serif;
+		background-color: var(--background-color-primary);
 	}
 
 	:global(html) {
 		color-scheme: dark;
-	}
-
-	:global(root) {
 		--title-color-primary: #fff;
 		--title-color-secondary: #0a7eff;
 
 		--text-color-primary: #fff;
-		--text-color-secondary: #b3b7b9;
+		--text-color-secondary: #a4becb;
 
-		--link-color-primary: #608eea;
+		--link-color: #608eea;
+		--link-color-hover: #0a7eff;
 
 		--message-bubble-background-gradient: linear-gradient(90deg, #0a85ff 0%, #0a7eff 100%);
 		--message-bubble-background-flat: #0a7eff;
 
-		--background-color-primary: #000000;
+		--background-color-primary: #050811;
 		--background-color-secondary: #ffffff;
-		--background-color-tertiary: #050811;
 
-		--stroke-color-primary: #263b5a;
+		--card-background-color-primary: rgba(38, 59, 90, 0.5);
+		--card-stroke-color-primary: #263b5a;
+	}
+
+	:global(h1, h2, h3, p, a) {
+		padding: 0;
+		margin: 0;
+	}
+
+	:global(a) {
+		text-decoration: none;
+		color: var(--link-color);
+	}
+
+	:global(a:hover) {
+		color: var(--link-color-hover);
+		transition: color 0.2s ease, text-decoration 0.2s ease;
 	}
 </style>
