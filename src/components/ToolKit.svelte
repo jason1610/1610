@@ -46,6 +46,12 @@
 		color: transparent;
 	}
 
+	@media (max-width: 600px) {
+		h2 {
+			font-size: 75px;
+		}
+	}
+
 	.wrapper {
 		display: flex;
 		flex-direction: row;

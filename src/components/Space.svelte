@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { snapToHeader } from '../stores/global';
+	import Astronaut from './Astronaut.svelte';
+
 	let spaceBackground: HTMLDivElement;
 	let scrollAmount: number = 0;
 	let maxY: number;
@@ -82,6 +84,7 @@
 </script>
 
 <div class={`space-container ${$snapToHeader ? 'snap-to-header' : ''}`}>
+	<Astronaut {scrollAmount} {maxY} />
 	<div class="space-background" bind:this={spaceBackground} />
 </div>
 

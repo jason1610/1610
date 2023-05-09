@@ -50,6 +50,7 @@
 		flex-direction: column;
 		align-items: center;
 	}
+
 	h2 {
 		font-size: 100px;
 		text-align: center;
@@ -59,6 +60,13 @@
 		-webkit-background-clip: text;
 		color: transparent;
 	}
+
+	@media (max-width: 600px) {
+		h2 {
+			font-size: 75px;
+		}
+	}
+
 	.projects {
 		display: flex;
 		justify-content: row;

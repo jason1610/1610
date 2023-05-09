@@ -67,6 +67,9 @@
 			> <span class="yellow">"ts"</span>&gt;
 		</p>
 
+		<p>//I've got some projects in the works,</p>
+		<p>//but im always looking for new ideas..</p>
+		<br />
 		<p>
 			//<span>{displayText}<span class="caret">█</span></span>
 		</p>
