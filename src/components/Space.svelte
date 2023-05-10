@@ -4,10 +4,13 @@
 	import Astronaut from './Astronaut.svelte';
 
 	let spaceBackground: HTMLDivElement;
+	let lvhDiv: HTMLDivElement;
+	let lvh: number;
 	let scrollAmount: number = 0;
 	let maxY: number;
 	let touchStartY: number;
 
+	let windowHeight: number;
 	const handleWheelScroll = (event: WheelEvent) => {
 		if (scrollAmount < maxY || (window.scrollY === 0 && event.deltaY < 0)) {
 			event.preventDefault();
@@ -40,22 +43,27 @@
 			spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
 		}
 		handleScroll();
+		// handleResize();
 		touchStartY = event.touches[0].clientY;
 	};
 
 	const handleResize = () => {
-		maxY = spaceBackground.clientHeight - window.innerHeight * 0.8;
+		let reachedBottom: boolean = false;
+		if (scrollAmount === maxY) reachedBottom = true;
+
+		maxY = spaceBackground.clientHeight - lvh * 0.8;
 		if (scrollAmount < 0) {
 			scrollAmount = 0;
 		} else if (scrollAmount > maxY) {
 			scrollAmount = maxY;
 		}
+		if (reachedBottom) scrollAmount = maxY;
 		spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
 		handleScroll();
 	};
 
 	const handleScroll = () => {
-		if (window.scrollY >= window.innerHeight * 0.8 - 70) {
+		if (window.scrollY >= lvh * 0.8 - 70) {
 			snapToHeader.set(true);
 		} else {
 			snapToHeader.set(false);
@@ -63,7 +71,8 @@
 	};
 
 	onMount(() => {
-		maxY = spaceBackground.clientHeight - window.innerHeight * 0.8;
+		lvh = lvhDiv.clientHeight;
+		maxY = spaceBackground.clientHeight - lvh * 0.8;
 		if (window.scrollY > 0) {
 			scrollAmount = maxY;
 			spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
@@ -83,6 +92,7 @@
 	});
 </script>
 
+<div class="lvh" bind:this={lvhDiv} />
 <div class={`space-container ${$snapToHeader ? 'snap-to-header' : ''}`}>
 	<Astronaut {scrollAmount} {maxY} />
 	<div class="space-background" bind:this={spaceBackground} />
@@ -92,11 +102,20 @@
 	.space-container {
 		overflow: hidden;
 		height: 80vh;
+		height: 80lvh;
 		border-radius: 0 0 30px 30px;
 		position: sticky;
 		top: calc(-80vh + 70px);
+		top: calc(-80lvh + 70px);
 		transition: border-radius 0.2s ease;
 		z-index: 1;
+	}
+
+	@media (max-width: 750px) {
+		.space-container {
+			top: calc(-80vh + 50px);
+			top: calc(-80lvh + 50px);
+		}
 	}
 
 	.space-background {
@@ -113,5 +132,12 @@
 	.snap-to-header {
 		border-radius: 0;
 		box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+	}
+
+	.lvh {
+		position: absolute;
+		pointer-events: none;
+		height: 100vh;
+		height: 100lvh;
 	}
 </style>

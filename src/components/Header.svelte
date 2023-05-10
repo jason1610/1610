@@ -1,10 +1,31 @@
 <script lang="ts">
 	import { snapToHeader } from '../stores/global';
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
+
+	let logoLink: string = '/';
+	$: {
+		if ($page.url.pathname === '/') {
+			logoLink = '#top';
+		} else {
+			logoLink = '/';
+		}
+	}
+
+	function handleLogoClick(event: MouseEvent) {
+		event.preventDefault();
+		if (logoLink === '#top') {
+			window.scrollTo(0, 0);
+		} else {
+			goto(logoLink);
+		}
+	}
+
 	// style={`${$snapToHeader ? 'backdrop-filter: blur(5px);' : ''}`}
 </script>
 
 <header>
-	<h1>1610</h1>
+	<a href={logoLink} on:click={handleLogoClick}>1610</a>
 </header>
 
 <style>
@@ -21,9 +42,26 @@
 		/* transition: background-color 0.2s ease; */
 	}
 
-	h1 {
+	a {
+		color: var(--text-color-primary);
+		font-size: 32px;
 		font-family: 'Lavoir';
 		transition: color 0.2s ease;
-		text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+
+		/* text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); */
+	}
+
+	@media (max-width: 750px) {
+		header {
+			height: 50px;
+		}
+		a {
+			font-size: 25px;
+		}
+	}
+
+	a:hover {
+		cursor: pointer;
+		color: var(--text-color-primary);
 	}
 </style>

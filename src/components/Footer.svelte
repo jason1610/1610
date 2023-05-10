@@ -10,7 +10,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-end;
-		height: 30vh;
+		height: 300px;
 		padding: 20px;
 		box-sizing: border-box;
 	}

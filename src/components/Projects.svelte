@@ -40,9 +40,9 @@
 	.container {
 		margin-top: -40px;
 		padding-top: 50vh;
-		padding-top: 50vhl;
+		padding-top: 50lvh;
 		padding-bottom: 20vh;
-		padding-bottom: 20vhl;
+		padding-bottom: 20lvh;
 		padding-left: 20px;
 		padding-right: 20px;
 		position: relative;

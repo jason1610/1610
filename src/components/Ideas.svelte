@@ -84,7 +84,7 @@
 		width: 400px;
 		max-width: 90vw;
 		background-color: var(--card-background-color-primary);
-		outline: 1.5px solid var(--card-stroke-color-primary);
+		box-shadow: 0 0 0 1.5px var(--card-stroke-color-primary);
 		border-radius: 10px;
 		box-sizing: border-box;
 		display: flex;

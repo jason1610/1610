@@ -19,8 +19,7 @@
 		cube, offering an enjoyable challenge. Competitive players can aim for top spots on the
 		leaderboard.
 	</p>
-
-	<a href="">Learn More ></a>
+	<a href="https://kubel.io/" target="_blank">Check it out ></a>
 </div>
 
 <style>
@@ -28,13 +27,14 @@
 		width: 400px;
 		max-width: 90vw;
 		background-color: var(--card-background-color-primary);
-		outline: 1.5px solid var(--card-stroke-color-primary);
+		box-shadow: 0 0 0 1.5px var(--card-stroke-color-primary);
 		border-radius: 10px;
 		padding: 30px;
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
+		overflow: hidden;
 	}
 
 	.top-group {

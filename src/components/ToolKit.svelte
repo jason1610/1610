@@ -26,9 +26,7 @@
 <style>
 	.container {
 		padding-top: 20vh;
-		padding-top: 20vhl;
-		/* padding-bottom: 20vh; */
-		/* padding-bottom: 20vhl; */
+		padding-top: 20lvh;
 		padding-left: 20px;
 		padding-right: 20px;
 		display: flex;
@@ -59,7 +57,7 @@
 		justify-content: center;
 		gap: 50px;
 		max-width: 90vw;
-		width: 900px;
+		width: 600px;
 		flex-wrap: wrap;
 	}
 </style>

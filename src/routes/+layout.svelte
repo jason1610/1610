@@ -1,12 +1,24 @@
 <script lang="ts">
 	import Header from '../components/Header.svelte';
 	import Footer from '../components/Footer.svelte';
+	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
+	export let data: any;
+
+	export let handleScroll = false;
+
+	onMount(async () => {
+		// disableScrollHandling();
+	});
 </script>
 
 <Header />
-<main>
-	<slot />
-</main>
+{#key data.pathname}
+	<main transition:fade={{ duration: 300 }}>
+		<slot />
+	</main>
+{/key}
 <Footer />
 
 <style>
@@ -30,6 +42,7 @@
 	}
 
 	:global(html) {
+		scroll-behavior: smooth;
 		color-scheme: dark;
 
 		--title-color-primary: #fff;

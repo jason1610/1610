@@ -3,10 +3,13 @@
 
 	export let message: string;
 	export let isTyping: boolean = true;
-	console.log(isTyping);
 </script>
 
-<div class={`message-bubble ${isTyping ? 'typing' : ''}`} in:fade={{ duration: 300 }}>
+<div
+	class={`message-bubble ${isTyping ? 'typing' : ''}`}
+	in:fade={{ duration: 300 }}
+	out:fade={{ duration: 300 }}
+>
 	<div class="content">
 		{#if isTyping}
 			<div class="typing-indicator">
@@ -30,11 +33,10 @@
 		min-height: 20px;
 		background-color: var(--message-bubble-background-flat);
 		background: var(--message-bubble-background-gradient);
-		border-radius: 10px 10px 10px 0;
+		border-radius: 10px 10px 10px 2px;
 		overflow: hidden;
 		padding: 7px;
-		transition: grid-template-columns 0.5s ease, grid-template-rows 0.5s ease,
-			border-radius 0.5s ease;
+		transition: grid-template-rows 0.2s ease, border-radius 0.2s ease;
 	}
 	.typing {
 		display: flex;
@@ -45,10 +47,15 @@
 	}
 
 	.content {
-		/* overflow: hidden; */
 		display: flex;
 		align-items: center;
 		justify-self: center;
+	}
+
+	p {
+		font-size: 16px;
+		font-weight: 400;
+		color: var(--text-color-primary);
 	}
 
 	.typing-indicator {
@@ -62,7 +69,7 @@
 		width: 6px;
 		aspect-ratio: 1;
 		margin: 2px;
-		animation: typing 3s ease-in-out infinite;
+		animation: typing 2s ease-in-out infinite;
 	}
 
 	.dot:nth-child(2) {

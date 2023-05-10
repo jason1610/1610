@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
 	import PaintBrushIcon from '../assets/paint-brush-icon.svg';
 </script>
 
@@ -23,7 +25,7 @@
 		and banners.
 	</p>
 
-	<a href="">Learn More ></a>
+	<a href="/design" data-sveltekit-noscroll>Learn More ></a>
 </div>
 
 <style>
@@ -31,13 +33,14 @@
 		width: 400px;
 		max-width: 90vw;
 		background-color: var(--card-background-color-primary);
-		outline: 1.5px solid var(--card-stroke-color-primary);
+		box-shadow: 0 0 0 1.5px var(--card-stroke-color-primary);
 		border-radius: 10px;
 		padding: 30px;
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
+		overflow: hidden;
 	}
 
 	.top-group {
