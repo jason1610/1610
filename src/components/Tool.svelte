@@ -3,6 +3,8 @@
 	export let caption: string;
 	export let color: string;
 
+	import { fade } from 'svelte/transition';
+
 	let isHovered: boolean = false;
 
 	const getTextColor = (hexColor: string) => {
@@ -24,13 +26,16 @@
 </script>
 
 <div class="container" on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave}>
-	<img src={img} alt="" style={isHovered ? `filter: drop-shadow(0 0 20px ${color});` : ''} />
+	<img class="logo" src={img} alt="" />
 	{#if isHovered}
 		<div class="speech-bubble" style="background-color: {color};">
 			<p style={`color:${textColor}`}>
 				{caption}
 			</p>
 		</div>
+	{/if}
+	{#if isHovered}
+		<img class="shadow" src={img} alt="" transition:fade={{ duration: 300 }} />
 	{/if}
 </div>
 
@@ -41,11 +46,23 @@
 		height: 100px;
 	}
 
-	img {
+	.logo {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
 		transition: filter 0.2s ease-in-out;
+	}
+
+	.shadow {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0%;
+		object-fit: contain;
+		left: 0%;
+		filter: blur(10px) brightness(1.2);
+		z-index: -1;
+		/* opacity: 0; */
 	}
 
 	.speech-bubble {
@@ -60,7 +77,7 @@
 		border-radius: 8px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 		text-align: center;
-		animation: spawn 0.2s ease-in-out;
+		animation: spawn 0.2s ease-in-out forwards;
 	}
 
 	@keyframes spawn {
@@ -74,5 +91,6 @@
 
 	.speech-bubble p {
 		color: black;
+		text-rendering: geometricPrecision;
 	}
 </style>

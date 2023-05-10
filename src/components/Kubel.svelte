@@ -1,5 +1,5 @@
 <script lang="ts">
-	import KubelLogo from '../assets/kubel-logo.svg';
+	import KubelLogo from '../assets/logos/kubel.svg';
 </script>
 
 <div class="card">

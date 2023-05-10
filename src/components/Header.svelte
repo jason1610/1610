@@ -30,7 +30,7 @@
 
 <style>
 	header {
-		position: fixed;
+		position: sticky;
 		display: flex;
 		height: 70px;
 		width: 100vw;

@@ -1,11 +1,12 @@
 <script lang="ts">
-	import typescript from '../assets/typescript-logo.png';
-	import react from '../assets/toolkit/react.png';
-	import node from '../assets/toolkit/nodejs.png';
-	import github from '../assets/toolkit/github.png';
-	import mongodb from '../assets/toolkit/mongodb.svg';
-	import vite from '../assets/toolkit/vite.png';
-	import svelte from '../assets/toolkit/svelte.png';
+	import Typescript from '../assets/logos/typescript.png';
+	import React from '../assets/logos/react.png';
+	import Node from '../assets/logos/nodejs.png';
+	import GitHub from '../assets/logos/github.png';
+	import MongoDB from '../assets/logos/mongodb.svg';
+	import Vite from '../assets/logos/vite.png';
+	import Svelte from '../assets/logos/svelte.png';
+	import Pixijs from '../assets/logos/pixijs.svg';
 
 	import Tool from './Tool.svelte';
 </script>
@@ -13,13 +14,14 @@
 <div class="container">
 	<h2>My Toolkit</h2>
 	<div class="wrapper">
-		<Tool img={typescript} caption="TypeScript" color="#2d79c7" />
-		<Tool img={react} caption="React" color="#61dbfb" />
-		<Tool img={svelte} caption="SvelteKit 🤍" color="#ff3c00" />
-		<Tool img={node} caption="Nodejs" color="#539e43" />
-		<Tool img={mongodb} caption="MongoDB" color="#13aa52" />
-		<Tool img={github} caption="GitHub" color="#ffffff" />
-		<Tool img={vite} caption="Vite" color="#758fff" />
+		<Tool img={Typescript} caption="TypeScript" color="#2d79c7" />
+		<Tool img={React} caption="React" color="#61dbfb" />
+		<Tool img={Svelte} caption="SvelteKit 🤍" color="#ff3c00" />
+		<Tool img={Node} caption="Nodejs" color="#539e43" />
+		<Tool img={MongoDB} caption="MongoDB" color="#13aa52" />
+		<Tool img={GitHub} caption="GitHub" color="#ffffff" />
+		<Tool img={Vite} caption="Vite" color="#758fff" />
+		<Tool img={Pixijs} caption="Pixijs" color="#e72264" />
 	</div>
 </div>
 

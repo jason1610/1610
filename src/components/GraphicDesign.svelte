@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 
-	import PaintBrushIcon from '../assets/paint-brush-icon.svg';
+	import PaintBrushIcon from '../assets/icons/brush.svg';
 </script>
 
 <div class="card">
@@ -25,7 +25,7 @@
 		and banners.
 	</p>
 
-	<a href="/design" data-sveltekit-noscroll>Learn More ></a>
+	<a href="/design" data-sveltekit-noscroll>Check it out ></a>
 </div>
 
 <style>

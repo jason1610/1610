@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import { snapToHeader } from '../stores/global';
 	import Astronaut from './Astronaut.svelte';
+	import { fade } from 'svelte/transition';
+	import Down from '../assets/icons/down.svg';
 
 	let spaceBackground: HTMLDivElement;
 	let lvhDiv: HTMLDivElement;
@@ -9,8 +11,24 @@
 	let scrollAmount: number = 0;
 	let maxY: number;
 	let touchStartY: number;
+	let showDownArrow: boolean = false;
 
-	let windowHeight: number;
+	const startTimer = () => {
+		setTimeout(() => {
+			showDownArrow = true;
+		}, 5000);
+	};
+
+	const handleScroll = () => {
+		if (window.scrollY >= lvh * 0.8 - 70) {
+			snapToHeader.set(true);
+			showDownArrow = false;
+		} else {
+			snapToHeader.set(false);
+			// startTimer();
+		}
+	};
+
 	const handleWheelScroll = (event: WheelEvent) => {
 		if (scrollAmount < maxY || (window.scrollY === 0 && event.deltaY < 0)) {
 			event.preventDefault();
@@ -62,21 +80,15 @@
 		handleScroll();
 	};
 
-	const handleScroll = () => {
-		if (window.scrollY >= lvh * 0.8 - 70) {
-			snapToHeader.set(true);
-		} else {
-			snapToHeader.set(false);
-		}
-	};
-
 	onMount(() => {
 		lvh = lvhDiv.clientHeight;
 		maxY = spaceBackground.clientHeight - lvh * 0.8;
 		if (window.scrollY > 0) {
 			scrollAmount = maxY;
 			spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
-		}
+			handleScroll();
+		} else startTimer();
+
 		window.addEventListener('wheel', handleWheelScroll, { passive: false });
 		window.addEventListener('scroll', handleScroll, { passive: false });
 		window.addEventListener('touchstart', handleTouchStart, { passive: false });
@@ -94,6 +106,9 @@
 
 <div class="lvh" bind:this={lvhDiv} />
 <div class={`space-container ${$snapToHeader ? 'snap-to-header' : ''}`}>
+	{#if showDownArrow}
+		<img class="down" src={Down} alt="scroll" transition:fade={{ duration: 300 }} />
+	{/if}
 	<Astronaut {scrollAmount} {maxY} />
 	<div class="space-background" bind:this={spaceBackground} />
 </div>
@@ -109,12 +124,35 @@
 		top: calc(-80lvh + 70px);
 		transition: border-radius 0.2s ease;
 		z-index: 1;
+		margin-top: -70px;
 	}
 
 	@media (max-width: 750px) {
 		.space-container {
 			top: calc(-80vh + 50px);
 			top: calc(-80lvh + 50px);
+			margin-top: -50px;
+		}
+	}
+
+	.down {
+		position: absolute;
+		bottom: 30px;
+		left: 50%;
+		z-index: 1;
+		transform: translate(-50%, 0);
+		animation: bounce 1.5s ease-in-out infinite;
+	}
+
+	@keyframes bounce {
+		0% {
+			transform: translate(-50%, 0);
+		}
+		50% {
+			transform: translate(-50%, -10px);
+		}
+		100% {
+			transform: translate(-50%, 0);
 		}
 	}
 
@@ -122,10 +160,11 @@
 		position: absolute;
 		width: 100%;
 		height: 180%;
-		background-image: url('../assets/space-background.png');
+		background-image: url('../assets/images/space-background.png');
 		background-size: cover;
 		background-position: bottom;
 		will-change: transform;
+
 		transition: transform 0.5s ease;
 	}
 

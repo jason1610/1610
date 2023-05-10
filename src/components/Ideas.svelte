@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TSLogo from '../assets/typescript-logo.png';
+	import TypescriptLogo from '../assets/logos/typescript.png';
 	let texts: string[] = [
 		'Maybe someting with ai?',
 		'How about a better way to do email..',
@@ -41,7 +41,7 @@
 <div class="card">
 	<div class="top">
 		<div class="tab">
-			<img src={TSLogo} alt="" />
+			<img src={TypescriptLogo} alt="" />
 			<h3>ideas.ts</h3>
 		</div>
 		<div class="fill" />

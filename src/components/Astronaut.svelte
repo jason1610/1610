@@ -4,7 +4,7 @@
 
 	import { onMount, tick } from 'svelte';
 	import TextMessage from './TextMessage.svelte';
-	import Astronaut from '../assets/astronaut.png';
+	import Astronaut from '../assets/images/astronaut.png';
 
 	const monthsSince = (date: Date) => {
 		const now = new Date();
@@ -14,7 +14,7 @@
 	const months = monthsSince(start);
 
 	const requiredText = [
-		`Hi! I'm a full stack developer from France 😀`,
+		`Hi! My name is Jason and I'm a full stack developer from France 😀`,
 		'My projects make the world a better place',
 		'Have a project in mind?'
 	];
