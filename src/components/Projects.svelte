@@ -4,27 +4,6 @@
 	import Kubel from './Kubel.svelte';
 	import Ideas from './Ideas.svelte';
 	import AbstractBackground from '../assets/images/abstract-background.png';
-
-	let opacity = 1;
-	let transitionPoint: number;
-
-	function handleScroll() {
-		const currentScrollY = window.scrollY;
-		if (currentScrollY >= 0 && currentScrollY <= transitionPoint) {
-			opacity = 1 - currentScrollY / transitionPoint;
-		} else {
-			opacity = 0;
-		}
-	}
-
-	onMount(() => {
-		transitionPoint = window.innerHeight * 0.3;
-		handleScroll();
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	});
 </script>
 
 <div class="container">
@@ -34,13 +13,10 @@
 		<Kubel />
 		<Ideas />
 	</div>
-
-	<div class="background" style="opacity: {opacity};" />
 </div>
 
 <style>
 	.container {
-		margin-top: -40px;
 		padding-top: 50vh;
 		padding-top: 50lvh;
 		padding-bottom: 20vh;

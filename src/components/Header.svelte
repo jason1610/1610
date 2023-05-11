@@ -54,8 +54,7 @@
 		font-size: 32px;
 		font-family: 'Lavoir';
 		transition: color 0.2s ease;
-
-		/* text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); */
+		text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	}
 
 	@media (max-width: 750px) {
