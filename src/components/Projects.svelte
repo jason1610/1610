@@ -3,6 +3,7 @@
 	import GraphicDesign from './GraphicDesign.svelte';
 	import Kubel from './Kubel.svelte';
 	import Ideas from './Ideas.svelte';
+	import AbstractBackground from '../assets/images/abstract-background.png';
 
 	let opacity = 1;
 	let transitionPoint: number;
@@ -33,6 +34,7 @@
 		<Kubel />
 		<Ideas />
 	</div>
+
 	<div class="background" style="opacity: {opacity};" />
 </div>
 
@@ -48,8 +50,21 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
+		position: relative;
 		align-items: center;
 	}
+
+	/* @keyframes spin {
+		0% {
+			transform: rotate(0deg) skewX(25deg);
+		}
+		50% {
+			transform: rotate(180deg) skewX(-25deg);
+		}
+		100% {
+			transform: rotate(360deg) skewX(25deg);
+		}
+	} */
 
 	h2 {
 		font-size: 100px;

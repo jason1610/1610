@@ -24,7 +24,7 @@
 	// style={`${$snapToHeader ? 'backdrop-filter: blur(5px);' : ''}`}
 </script>
 
-<header>
+<header class={$snapToHeader && $page.url.pathname === '/' ? 'glow' : ''}>
 	<a href={logoLink} on:click={handleLogoClick}>1610</a>
 </header>
 
@@ -39,7 +39,14 @@
 		padding: 20px;
 		box-sizing: border-box;
 		z-index: 9999;
-		/* transition: background-color 0.2s ease; */
+		background-image: linear-gradient(to bottom, rgba(11, 143, 209, 0.2), rgba(10, 62, 89, 0));
+		background-position: 0 -70px;
+		background-repeat: no-repeat;
+		transition: background-position 0.5s ease-in-out;
+	}
+
+	header.glow {
+		background-position: 0 0;
 	}
 
 	a {
@@ -54,7 +61,9 @@
 	@media (max-width: 750px) {
 		header {
 			height: 50px;
+			background-position: 0 -50px;
 		}
+
 		a {
 			font-size: 25px;
 		}

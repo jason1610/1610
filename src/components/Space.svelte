@@ -25,7 +25,6 @@
 			showDownArrow = false;
 		} else {
 			snapToHeader.set(false);
-			// startTimer();
 		}
 	};
 
@@ -105,7 +104,7 @@
 </script>
 
 <div class="lvh" bind:this={lvhDiv} />
-<div class={`space-container ${$snapToHeader ? 'snap-to-header' : ''}`}>
+<div class="space-container">
 	{#if showDownArrow}
 		<img class="down" src={Down} alt="scroll" transition:fade={{ duration: 300 }} />
 	{/if}
@@ -119,10 +118,11 @@
 		height: 80vh;
 		height: 80lvh;
 		border-radius: 0 0 30px 30px;
-		position: sticky;
-		top: calc(-80vh + 70px);
-		top: calc(-80lvh + 70px);
-		transition: border-radius 0.2s ease;
+		position: relative;
+		/* position: sticky; */
+		/* top: calc(-80vh + 70px);
+		top: calc(-80lvh + 70px); */
+		/* transition: border-radius 0.2s ease; */
 		z-index: 1;
 		margin-top: -70px;
 	}

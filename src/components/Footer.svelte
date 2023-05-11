@@ -25,11 +25,7 @@
 		height: 300px;
 		padding: 20px;
 		box-sizing: border-box;
-	}
-
-	.container {
 		font-size: 15px;
-		display: flex;
 		gap: 10px;
 		font-weight: 400;
 		color: var(--text-color-tertiary);

@@ -9,6 +9,7 @@
 	import ND from '../../assets/design/nd.gif';
 	import Space from '../../assets/design/space.png';
 	import House from '../../assets/design/house.png';
+	import SunGirl from '../../assets/design/sun-girl.png';
 
 	onMount(() => {
 		setTimeout(() => {
@@ -35,6 +36,7 @@
 		<img class="nd" src={ND} alt="" />
 		<img class="space" src={Space} alt="" />
 		<img class="house" src={House} alt="" />
+		<img class="sungirl" src={SunGirl} alt="" />
 	</div>
 </div>
 
@@ -106,7 +108,12 @@
 
 	.portrait {
 		grid-column: 1 / 3;
-		grid-row: 6;
+		grid-row: 6/8;
+	}
+
+	.sungirl {
+		grid-column: 3;
+		grid-row: 6 / 7;
 	}
 
 	.info {
