@@ -129,8 +129,6 @@
 
 	@media (max-width: 750px) {
 		.space-container {
-			top: calc(-80vh + 50px);
-			top: calc(-80lvh + 50px);
 			margin-top: -50px;
 		}
 	}
