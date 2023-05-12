@@ -54,7 +54,7 @@
 		--background-color-primary: #050811;
 		--background-color-secondary: #ffffff;
 
-		--card-background-color-primary: #263b5a80;
+		--card-background-color-primary: rgba(27, 42, 66, 0.753);
 		--card-stroke-color-primary: #263b5a;
 	}
 

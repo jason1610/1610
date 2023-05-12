@@ -92,6 +92,8 @@
 		gap: 20px;
 		overflow: hidden;
 		min-height: 275px;
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
 	}
 
 	.top {

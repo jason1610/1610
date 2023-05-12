@@ -35,6 +35,8 @@
 		flex-direction: column;
 		gap: 20px;
 		overflow: hidden;
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
 	}
 
 	.top-group {

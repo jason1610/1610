@@ -3,9 +3,10 @@
 	import GraphicDesign from './GraphicDesign.svelte';
 	import Kubel from './Kubel.svelte';
 	import Ideas from './Ideas.svelte';
-	import AbstractBackground from '../assets/images/abstract-background.png';
+	import StarsBackground from '../assets/images/stars-background.png';
 </script>
 
+<div class="white-transition" />
 <div class="container">
 	<h2>My Projects</h2>
 	<div class="projects">
@@ -13,6 +14,7 @@
 		<Kubel />
 		<Ideas />
 	</div>
+	<img class="background" src={StarsBackground} alt="" />
 </div>
 
 <style>
@@ -28,6 +30,25 @@
 		flex-direction: column;
 		position: relative;
 		align-items: center;
+		margin-top: -30px;
+		z-index: -1;
+	}
+
+	.white-transition {
+		width: 100%;
+		height: 30px;
+		box-shadow: 0 -30px 0 30px white;
+		border-radius: 30px 30px 0 0;
+	}
+
+	.background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-height: 100%;
+		object-fit: cover;
+		z-index: -1;
 	}
 
 	/* @keyframes spin {
@@ -67,15 +88,5 @@
 		width: 900px;
 		max-width: 90vw;
 		gap: 20px;
-	}
-	.background {
-		background-color: var(--background-color-secondary);
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		top: 0;
-		left: 0;
-		transition: opacity 0.3s ease;
-		pointer-events: none;
 	}
 </style>

@@ -112,7 +112,6 @@
 	<div class="space-background" bind:this={spaceBackground} />
 </div>
 <div class="white" />
-<div class="white-transition" />
 
 <style>
 	.space-container {
@@ -138,15 +137,6 @@
 		margin-top: -30px;
 		top: 0;
 		left: 0;
-	}
-
-	.white-transition {
-		width: 100%;
-		/* height: 200px; */
-		height: 30px;
-		box-shadow: 0 -30px 0 30px white;
-
-		border-radius: 30px 30px 0 0;
 	}
 
 	@media (max-width: 750px) {
