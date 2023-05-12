@@ -31,7 +31,6 @@
 		position: relative;
 		align-items: center;
 		margin-top: -30px;
-		z-index: -1;
 	}
 
 	.white-transition {
