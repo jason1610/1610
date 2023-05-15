@@ -7,7 +7,7 @@
 	import Vite from '../assets/logos/vite.png';
 	import Svelte from '../assets/logos/svelte.png';
 	import Pixijs from '../assets/logos/pixijs.svg';
-
+	import Docker from '../assets/logos/docker.png';
 	import Tool from './Tool.svelte';
 </script>
 
@@ -21,6 +21,7 @@
 		<Tool img={MongoDB} caption="MongoDB" color="#13aa52" />
 		<Tool img={GitHub} caption="GitHub" color="#ffffff" />
 		<Tool img={Vite} caption="Vite" color="#758fff" />
+		<Tool img={Docker} caption="Docker" color="#2496ed" />
 		<Tool img={Pixijs} caption="Pixijs" color="#e72264" />
 	</div>
 </div>
