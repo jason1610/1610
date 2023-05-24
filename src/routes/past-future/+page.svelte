@@ -1,9 +1,9 @@
 <script lang="ts">
-	import MSDOS from '../../components/past&now/MSDOS.svelte';
-	import Xp from '../../components/past&now/Xp.svelte';
-	import Intro from '../../components/past&now/ComputerIntro.svelte';
-	import IBM from '../../components/past&now/IBM.svelte';
-	import Macintosh from '../../components/past&now/Macintosh.svelte';
+	import MSDOS from '../../components/past-future/MSDOS.svelte';
+	import Xp from '../../components/past-future/Xp.svelte';
+	import Intro from '../../components/past-future/ComputerIntro.svelte';
+	import IBM from '../../components/past-future/IBM.svelte';
+	import Macintosh from '../../components/past-future/Macintosh.svelte';
 	import { register } from 'swiper/element/bundle';
 	register();
 </script>

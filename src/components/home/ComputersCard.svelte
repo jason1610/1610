@@ -11,7 +11,7 @@
 				<p>🖥️</p>
 				<!-- <img src={PaintBrushIcon} alt="Paint Brush Icon" /> -->
 			</div>
-			<h2>Past-Now</h2>
+			<h2>Past-Future</h2>
 		</div>
 		<h3>
 			<span style="color: #30A8FF">Typescript</span>
@@ -25,7 +25,7 @@
 		presentation on the inovation in computers. This is an ongoing project that I will be adding to.
 	</p>
 
-	<a href="/past-now">Check it out ></a>
+	<a href="/past-future">Check it out ></a>
 </div>
 
 <style>
