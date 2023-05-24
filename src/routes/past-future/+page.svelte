@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import MSDOS from '../../components/past-future/MSDOS.svelte';
 	import Xp from '../../components/past-future/Xp.svelte';
 	import Intro from '../../components/past-future/ComputerIntro.svelte';
@@ -6,11 +7,24 @@
 	import Macintosh from '../../components/past-future/Macintosh.svelte';
 	import { register } from 'swiper/element/bundle';
 	register();
+
+	let Swiper: any;
+
+	onMount(() => {
+		Swiper.TouchEventsTarget = 'wrapper';
+		// Swiper.addEventListener('touchmove', (e: TouchEvent) => {
+		// 	debug = e.touches.length;
+		// 	if (e.touches.length > 1) {
+		// 		Swiper.allowTouchMove = false;
+		// 	} else {
+		// 		Swiper.TouchEventsTarget = 'container';
+		// 	}
+		// });
+	});
 </script>
 
-<!-- <div class="spacer" /> -->
 <div class="container">
-	<swiper-container>
+	<swiper-container bind:this={Swiper}>
 		<swiper-slide>
 			<Intro />
 		</swiper-slide>
