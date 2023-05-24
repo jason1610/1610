@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Space from '../components/Space.svelte';
-	import Projects from '../components/Projects.svelte';
-	import ToolKit from '../components/ToolKit.svelte';
+	import Space from '../components/home/Space.svelte';
+	import Projects from '../components/home/Projects.svelte';
+	import ToolKit from '../components/home/ToolKit.svelte';
 </script>
 
 <Space />

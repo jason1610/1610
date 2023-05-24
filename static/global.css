@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@font-face {
+	font-family: 'Lavoir';
+	src: url('../src/assets/fonts/Lavoir.otf');
+}
+
+header {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	background-color: var(--background-color-primary);
+}
+
+html {
+	scroll-behavior: smooth;
+	color-scheme: dark;
+
+	--title-color-primary: #fff;
+	--title-color-secondary: #0a7eff;
+
+	--text-color-primary: #fff;
+	--text-color-secondary: #a4becb;
+	--text-color-tertiary: #3d7f90;
+
+	--link-color: #608eea;
+	--link-color-hover: #0a7eff;
+
+	--carousel-padding: 100px 10%;
+	--max-content-width: 1200px;
+
+	--message-bubble-background-gradient: linear-gradient(90deg, #0a85ff 0%, #0a7eff 100%);
+	--message-bubble-background-flat: #0a7eff;
+
+	--background-color-primary: #050811;
+	--background-color-secondary: #ffffff;
+
+	--card-background-color-primary: rgba(27, 42, 66, 0.753);
+	--card-stroke-color-primary: #263b5a;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: var(--link-color);
+}
+
+a:hover {
+	color: var(--link-color-hover);
+	transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.article * {
+	cursor: default;
+}
+
+.article h1 {
+	color: var(--text-color-primary);
+	font-size: 50px;
+	font-weight: 700;
+	margin: 0;
+}
+
+.article h2 {
+	color: var(--text-color-secondary);
+	font-size: 25px;
+	font-weight: 700;
+	margin: 0;
+}
+
+.article p {
+	color: var(--text-color-primary);
+	font-size: 18px;
+	font-weight: 400;
+}
