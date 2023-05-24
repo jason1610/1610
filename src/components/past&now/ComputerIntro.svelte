@@ -1,11 +1,14 @@
 <script lang="ts">
 	import Image from './assets/pc.png';
-	import Finger from './assets/pointing-emoji.png';
+	import Finger from './assets/pointing-icon.png';
 </script>
 
 <div class="container">
 	<div class="content">
-		<!-- <img id="pointer" src={Finger} alt="" /> -->
+		<div class="pointer-container">
+			<img id="pointer" src={Finger} alt="" />
+			<p>Swipe to explore</p>
+		</div>
 		<img id="computer" src={Image} alt="" />
 		<div class="article">
 			<h1>Computers & OS</h1>
@@ -53,27 +56,51 @@
 		color: rgb(120, 120, 120);
 	}
 
-	#pointer {
-		height: 100px;
-
+	.pointer-container {
 		position: absolute;
-		bottom: 5px;
-		left: 50%;
-		transform: translate(-50%, 0);
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 15px;
+		box-sizing: border-box;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	#pointer {
+		height: 50px;
+		transform-origin: bottom center;
 		z-index: 2;
-		animation: swipe 2s ease-in-out infinite;
+		animation: swipe 5s ease-in-out infinite;
 	}
 
 	@keyframes swipe {
 		0% {
-			rotate: 0deg;
-		}
-		50% {
 			rotate: 10deg;
-			transform: translate(-50%, 0);
+			transform: translate(100%, 0);
+			opacity: 0;
 		}
+		5% {
+			rotate: 10deg;
+			transform: translate(100%, 0);
+			opacity: 1;
+		}
+
+		30% {
+			rotate: -10deg;
+			transform: translate(-100%, 0);
+			opacity: 1;
+		}
+
+		35%,
 		100% {
-			rotate: 0deg;
+			rotate: -10deg;
+			transform: translate(-100%, 0);
+			opacity: 0;
 		}
 	}
 

@@ -48,6 +48,7 @@
 			<div class="article">
 				<h1>Personal Computers</h1>
 				<h2>1984</h2>
+				<br />
 				<p>
 					A game changer in personal computing, featuring a graphical user interface and a mouse,
 					both radical innovations at the time. These features enabled more intuitive user

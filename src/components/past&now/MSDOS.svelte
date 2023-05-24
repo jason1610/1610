@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount, afterUpdate } from 'svelte';
 	import Computer from './assets/5150.png';
+	import Finger from './assets/pointing-icon.png';
 
+	let hasClicked: boolean = false;
 	let currentDirectory: string[] = ['A:'];
 	let inputText: string = '';
 	let terminalText: string[] = [''];
@@ -193,6 +195,10 @@
 				versatile, user-friendly operating system, MS-DOS facilitated widespread accessibility to
 				computing technology, enabling a new era of software development and personal productivity.
 			</p>
+			<br />
+			<p>
+				Try clicking on the screen to see how MS-DOS works. Type <span>help</span> to see a list of commands.
+			</p>
 		</div>
 	</div>
 </div>
@@ -275,6 +281,14 @@
 
 	.article h2 {
 		color: var(--text-color-primary);
+	}
+
+	.article p:last-child {
+		color: rgb(75, 236, 54);
+	}
+
+	.article span {
+		font-weight: bold;
 	}
 
 	.terminal {
