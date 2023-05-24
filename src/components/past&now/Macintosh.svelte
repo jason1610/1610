@@ -33,6 +33,7 @@
 				event.data == (window as any).YT.PlayerState.ENDED
 			) {
 				isPlaying = false;
+				console.log((window as any).YT);
 			}
 		}
 	});

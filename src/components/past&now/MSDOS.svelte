@@ -133,7 +133,6 @@
 	<div class="content">
 		<div class="computer">
 			<img src={Computer} alt="" />
-
 			<div
 				class="terminal"
 				bind:this={terminal}
@@ -175,6 +174,10 @@
 						<div class="command-line">
 							<span>{currentDirectory.join('\\')}\</span>
 							<input
+								autocomplete="off"
+								autocorrect="off"
+								autocapitalize="off"
+								spellcheck="false"
 								bind:this={input}
 								type="text"
 								bind:value={inputText}
@@ -191,7 +194,7 @@
 			<h2>1981</h2>
 			<br />
 			<p>
-				MS-DOS,running on the IBM PC 5150, marked a turning point in personal computing. As a
+				MS-DOS, running on the IBM PC 5150, marked a turning point in personal computing. As a
 				versatile, user-friendly operating system, MS-DOS facilitated widespread accessibility to
 				computing technology, enabling a new era of software development and personal productivity.
 			</p>
@@ -256,6 +259,8 @@
 		/* width: 100%; */
 		/* height: 100%; */
 		z-index: 1;
+		/* pointer-events: none; */
+		pointer-events: none;
 	}
 
 	.computer img {
@@ -293,6 +298,7 @@
 
 	.terminal {
 		position: absolute;
+		pointer-events: all;
 		width: 36.5%;
 		height: 35%;
 		left: 20%;

@@ -10,7 +10,7 @@
 
 <!-- <div class="spacer" /> -->
 <div class="container">
-	<swiper-container mousewheel-force-to-axis="true">
+	<swiper-container>
 		<swiper-slide>
 			<Intro />
 		</swiper-slide>
