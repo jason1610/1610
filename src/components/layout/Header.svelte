@@ -29,6 +29,11 @@
 </header>
 
 <style>
+	@font-face {
+		font-family: 'Lavoir';
+		src: url('../../assets//fonts/Lavoir.otf');
+	}
+
 	header {
 		position: fixed;
 		display: flex;
@@ -52,7 +57,7 @@
 	a {
 		color: var(--text-color-primary);
 		font-size: 32px;
-		font-family: 'Lavoir';
+		font-family: 'Lavoir', sans-serif;
 		transition: color 0.2s ease;
 		text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	}
