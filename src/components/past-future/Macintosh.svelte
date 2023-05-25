@@ -47,7 +47,7 @@
 			style={`${isPlaying ? 'grid-template-rows: 0fr; opacity: 0;' : ''}`}
 		>
 			<div class="article">
-				<h1>Personal Computers</h1>
+				<h1>Macintosh</h1>
 				<h2>1984</h2>
 				<br />
 				<p>
