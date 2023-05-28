@@ -1,6 +1,6 @@
 <script lang="ts">
 	import InstagramIcon from '../../assets/icons/instagram.svg';
-	import MailIcon from '../../assets/icons/instagram.svg';
+	import MailIcon from '../../assets/icons/mail.svg';
 </script>
 
 <div class="container">
