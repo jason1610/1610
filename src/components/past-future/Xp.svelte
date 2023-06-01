@@ -24,7 +24,7 @@
 	const fileSize: number = 80;
 
 	let article: string =
-		'VVVVVVVVVVVVVVVVVVV\n>>>WINDOWS XP<<<\n^^^^^^^^^^^^^^\n2001\n\nWindows XP is considered one of Microsofts most successful operating systems. It combined the reliability and security of professional-grade operating systems with the usability and compatibility features that made consumer-grade systems popular. XP introduced features like a revamped GUI, fast user switching, and system restore, all of which contributed to its broad adoption. Its longevity also made it noteworthy; despite subsequent OS releases, XP remained in use in many sectors for well over a decade.';
+		'WINDOWS XP\n2001\n\nWindows XP is considered one of Microsofts most successful operating systems. It combined the reliability and security of professional-grade operating systems with the usability and compatibility features that made consumer-grade systems popular. XP introduced features like a revamped GUI, fast user switching, and system restore, all of which contributed to its broad adoption. Its longevity also made it noteworthy; despite subsequent OS releases, XP remained in use in many sectors for well over a decade.';
 	let stickyOffset: number = 0;
 	let desktop: HTMLDivElement;
 	let screen: HTMLDivElement;

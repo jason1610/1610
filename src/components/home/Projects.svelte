@@ -21,10 +21,7 @@
 
 <style>
 	.container {
-		padding-top: 50vh;
-		padding-top: 50lvh;
-		padding-bottom: 20vh;
-		padding-bottom: 20lvh;
+		padding-top: 20lvh;
 		padding-left: 20px;
 		padding-right: 20px;
 		position: relative;
@@ -33,7 +30,7 @@
 		position: relative;
 		align-items: center;
 		margin-top: -30px;
-		z-index: 1;
+		/* z-index: 1; */
 	}
 
 	.white-transition {

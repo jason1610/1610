@@ -25,6 +25,7 @@
 		height: 300px;
 		padding: 20px;
 		box-sizing: border-box;
+		margin-top: 150px;
 		font-size: 15px;
 		gap: 10px;
 		font-weight: 400;

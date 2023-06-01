@@ -1,119 +1,134 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { snapToHeader } from '../../stores/global';
 	import Astronaut from './Astronaut.svelte';
-	import { fade } from 'svelte/transition';
-	import Down from '../../assets/icons/down.svg';
+	// @ts-ignore
+	import Matter from 'matter-js';
 
-	let spaceBackground: HTMLDivElement;
+	let astronautElement: HTMLDivElement;
+	let spaceContainerElement: HTMLDivElement;
+	let spaceBackgroundElement: HTMLDivElement;
+	let engine: any = Matter.Engine.create({ gravity: { x: 0, y: 0 } });
 	let lvhDiv: HTMLDivElement;
 	let lvh: number;
 	let scrollAmount: number = 0;
 	let maxY: number;
-	let touchStartY: number;
-	let showDownArrow: boolean = false;
-
-	const startTimer = () => {
-		setTimeout(() => {
-			showDownArrow = true;
-		}, 5000);
-	};
-
-	const handleScroll = () => {
-		if (window.scrollY >= lvh * 0.8 - 70) {
-			snapToHeader.set(true);
-			showDownArrow = false;
-		} else {
-			snapToHeader.set(false);
-		}
-	};
 
 	const handleWheelScroll = (event: WheelEvent) => {
-		if (scrollAmount < maxY || (window.scrollY === 0 && event.deltaY < 0)) {
-			event.preventDefault();
-			scrollAmount += event.deltaY;
-			if (scrollAmount < 0) {
-				scrollAmount = 0;
-			} else if (scrollAmount > maxY) {
-				scrollAmount = maxY;
-			}
-			spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
+		scrollAmount += event.deltaY;
+		if (scrollAmount < 0) {
+			scrollAmount = 0;
 		}
-		handleScroll();
-	};
-
-	const handleTouchStart = (event: TouchEvent) => {
-		touchStartY = event.touches[0].clientY;
-	};
-
-	const handleTouchMove = (event: TouchEvent) => {
-		const deltaY = touchStartY - event.touches[0].clientY;
-
-		if (scrollAmount < maxY || (window.scrollY === 0 && deltaY < 0)) {
-			event.preventDefault();
-			scrollAmount += deltaY;
-			if (scrollAmount < 0) {
-				scrollAmount = 0;
-			} else if (scrollAmount > maxY) {
-				scrollAmount = maxY;
-			}
-			spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
-		}
-		handleScroll();
-		// handleResize();
-		touchStartY = event.touches[0].clientY;
+		spaceBackgroundElement.style.transform = `translateY(-${Math.min(scrollAmount, maxY)}px)`;
 	};
 
 	const handleResize = () => {
 		let reachedBottom: boolean = false;
 		if (scrollAmount === maxY) reachedBottom = true;
 
-		maxY = spaceBackground.clientHeight - lvh * 0.8;
+		maxY = spaceBackgroundElement.clientHeight - lvh * 0.8;
 		if (scrollAmount < 0) {
 			scrollAmount = 0;
 		} else if (scrollAmount > maxY) {
 			scrollAmount = maxY;
 		}
 		if (reachedBottom) scrollAmount = maxY;
-		spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
-		handleScroll();
+		spaceBackgroundElement.style.transform = `translateY(-${scrollAmount}px)`;
+	};
+
+	let threshold = 150;
+
+	const applyForce = (astronaut: any, mouse: any) => {
+		if (!astronautElement) return;
+		let distance = Matter.Vector.magnitude(Matter.Vector.sub(mouse.position, astronaut.position));
+		if (distance < threshold) {
+			let direction = Matter.Vector.normalise(
+				Matter.Vector.sub(astronaut.position, mouse.position)
+			);
+			let force = Math.min(0.001, 0.02 / (distance + 0.001));
+			// let force = 0.001;
+			Matter.Body.applyForce(astronaut, astronaut.position, Matter.Vector.mult(direction, force));
+		}
+
+		astronautElement.style.left = `${astronaut.position.x}px`;
+		astronautElement.style.top = `${astronaut.position.y}px`;
+		astronautElement.style.transform = `rotate(${astronaut.angle}rad)`;
 	};
 
 	onMount(() => {
 		lvh = lvhDiv.clientHeight;
-		maxY = spaceBackground.clientHeight - lvh * 0.8;
+		maxY = spaceBackgroundElement.clientHeight - lvh * 0.8;
 		if (window.scrollY > 0) {
 			scrollAmount = maxY;
-			spaceBackground.style.transform = `translateY(-${scrollAmount}px)`;
-		} else startTimer();
-		handleScroll();
+			spaceBackgroundElement.style.transform = `translateY(-${scrollAmount}px)`;
+		}
 
+		let astronaut = Matter.Bodies.rectangle(
+			lvhDiv.clientWidth / 2 - astronautElement.clientWidth / 2,
+			lvhDiv.clientHeight / 2,
+			62.5,
+			astronautElement.clientHeight,
+			{
+				restitution: 0.8,
+				friction: 0,
+				frictionAir: 0.001
+			}
+		);
+		handleWheelScroll({ deltaY: 0 } as WheelEvent);
+		let mouse = Matter.Bodies.circle(lvhDiv.clientWidth, 0, 10, { isSensor: true });
+		let offset = 5;
+		let options = { isStatic: true };
+		let width = spaceContainerElement.offsetWidth;
+		let height = spaceContainerElement.offsetHeight;
+		let walls = [
+			Matter.Bodies.rectangle(width / 2, -offset, width + 2 * offset, 50, options), // top
+			Matter.Bodies.rectangle(width / 2, height + offset, width + 2 * offset, 50, options), // bottom
+			Matter.Bodies.rectangle(width + offset, height / 2, 50, height + 2 * offset, options), // right
+			Matter.Bodies.rectangle(-offset, height / 2, 50, height + 2 * offset, options) // left
+		];
+		Matter.World.add(engine.world, [astronaut, ...walls]);
+		Matter.Runner.run(engine);
+
+		Matter.Events.on(engine, 'afterUpdate', function () {
+			applyForce(astronaut, mouse);
+		});
+		astronautElement.style.opacity = '1';
+
+		window.addEventListener('mousemove', function (event) {
+			Matter.Body.setPosition(mouse, { x: event.clientX, y: window.scrollY + event.clientY });
+		});
 		window.addEventListener('wheel', handleWheelScroll, { passive: false });
-		window.addEventListener('scroll', handleScroll, { passive: false });
-		window.addEventListener('touchstart', handleTouchStart, { passive: false });
-		window.addEventListener('touchmove', handleTouchMove, { passive: false });
 		window.addEventListener('resize', handleResize);
 		return () => {
+			Matter.Runner.stop(engine);
+			Matter.Events.off(engine, 'afterUpdate', function () {});
 			window.removeEventListener('wheel', handleWheelScroll);
 			window.removeEventListener('resize', handleResize);
-			window.removeEventListener('scroll', handleScroll);
-			window.removeEventListener('touchstart', handleTouchStart);
-			window.removeEventListener('touchmove', handleTouchMove);
+			window.removeEventListener('mousemove', () => {});
 		};
 	});
 </script>
 
 <div class="lvh" bind:this={lvhDiv} />
-<div class="space-container">
-	{#if showDownArrow}
-		<img class="down" src={Down} alt="scroll" transition:fade={{ duration: 300 }} />
-	{/if}
-	<Astronaut {scrollAmount} {maxY} />
-	<div class="space-background" bind:this={spaceBackground} />
+<div class="space-container" bind:this={spaceContainerElement}>
+	<div bind:this={astronautElement} class="astronaut">
+		<Astronaut />
+	</div>
+	<div class="space-background" bind:this={spaceBackgroundElement} />
 </div>
 <div class="white" />
 
 <style>
+	.astronaut {
+		position: absolute;
+		left: 500px;
+		top: 500px;
+		z-index: 100;
+		pointer-events: none;
+		z-index: 100;
+		opacity: 0;
+		transition: opacity 0.5s ease;
+	}
+
 	.space-container {
 		overflow: hidden;
 		height: 80lvh;
@@ -143,15 +158,6 @@
 		}
 	}
 
-	.down {
-		position: absolute;
-		bottom: 30px;
-		left: 50%;
-		z-index: 1;
-		transform: translate(-50%, 0);
-		animation: bounce 1.5s ease-in-out infinite;
-	}
-
 	@keyframes bounce {
 		0% {
 			transform: translate(-50%, 0);
@@ -172,12 +178,8 @@
 		background-size: cover;
 		background-position: bottom;
 		will-change: transform;
+		transform: translateY(-30%);
 		transition: transform 0.5s ease;
-	}
-
-	.snap-to-header {
-		border-radius: 0;
-		box-shadow: 0 0 50px rgba(0, 0, 0, 1);
 	}
 
 	.lvh {
@@ -185,5 +187,6 @@
 		pointer-events: none;
 		height: 100vh;
 		height: 100lvh;
+		width: 100%;
 	}
 </style>

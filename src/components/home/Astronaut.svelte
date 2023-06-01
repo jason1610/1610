@@ -1,7 +1,4 @@
 <script lang="ts">
-	export let scrollAmount: number;
-	export let maxY: number;
-
 	import { onMount, tick } from 'svelte';
 	import TextMessage from './TextMessage.svelte';
 	import Astronaut from '../../assets/images/astronaut.png';
@@ -79,7 +76,7 @@
 	}
 </script>
 
-<div class="container" style={`top: ${(scrollAmount / maxY) * 25 + 40}%`}>
+<div class="container">
 	<img src={Astronaut} alt="" />
 	<div class="message-container">
 		{#each messages as { text, key, isTyping } (key)}
@@ -90,23 +87,21 @@
 
 <style>
 	.container {
-		position: absolute;
 		width: 350px;
 		max-width: 90vw;
-		top: 50%;
-		left: 50%;
 		z-index: 1;
 		transition: top 1.25s ease;
-		transform: translate(-50%, -50%);
 		display: flex;
 		flex-wrap: nowrap;
 		overflow-anchor: bottom;
 		height: 170px;
+		transform: translate(-62.5px, -90px);
 	}
 
 	.message-container {
 		width: 100%;
 		min-width: 50%;
+		max-width: 50vw;
 		display: flex;
 		flex-direction: column-reverse;
 		gap: 5px;
@@ -119,9 +114,9 @@
 
 	img {
 		width: 125px;
-		max-width: 40vw;
 		object-fit: contain;
 		animation: hover 20s ease-in-out infinite;
+		pointer-events: none;
 	}
 
 	/* img:hover {
