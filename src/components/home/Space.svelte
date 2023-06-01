@@ -65,10 +65,10 @@
 		let astronaut = Matter.Bodies.rectangle(
 			lvhDiv.clientWidth / 2 - astronautElement.clientWidth / 2,
 			lvhDiv.clientHeight / 2,
-			62.5,
+			125,
 			astronautElement.clientHeight,
 			{
-				restitution: 0.8,
+				restitution: 0.6,
 				friction: 0,
 				frictionAir: 0.001
 			}
