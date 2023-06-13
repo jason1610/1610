@@ -10,6 +10,7 @@
 	import Docker from '../../assets/logos/docker.png';
 	import Tauri from '../../assets/logos/tauri.svg';
 	import Rust from '../../assets/logos/rust.png';
+	import Bevy from '../../assets/logos/bevy.svg';
 	import Tool from './Tool.svelte';
 </script>
 
@@ -26,13 +27,14 @@
 			<Tool img={Vite} caption="Vite" color="#758fff" />
 			<Tool img={Docker} caption="Docker" color="#2496ed" />
 			<Tool img={Pixijs} caption="Pixijs" color="#e72264" />
+			<Tool img={Tauri} caption="Tauri" color="#ffc131" />
 		</div>
 	</div>
 	<div>
 		<h2>Learning...</h2>
 		<div class="wrapper">
-			<Tool img={Tauri} caption="Tauri" color="#ffc131" />
 			<Tool img={Rust} caption="Rust" color="#90522d" />
+			<Tool img={Bevy} caption="Bevy" color="#ffffff" />
 		</div>
 	</div>
 </div>
