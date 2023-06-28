@@ -11,6 +11,7 @@
 	import Tauri from '../../assets/logos/tauri.svg';
 	import Rust from '../../assets/logos/rust.png';
 	import Bevy from '../../assets/logos/bevy.svg';
+	import Electron from '../../assets/logos/electron.png';
 	import Tool from './Tool.svelte';
 </script>
 
@@ -34,7 +35,7 @@
 		<h2>Learning...</h2>
 		<div class="wrapper">
 			<Tool img={Rust} caption="Rust" color="#90522d" />
-			<Tool img={Bevy} caption="Bevy" color="#ffffff" />
+			<Tool img={Electron} caption="Electron" color="#2adbfa" />
 		</div>
 	</div>
 </div>
