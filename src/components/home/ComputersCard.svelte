@@ -20,7 +20,7 @@
 	</div>
 	<p>
 		Tech has moved so fast that many of us dont know how it started. Here is an interactive
-		presentation on the inovation in computers. This is an ongoing project that I will be adding to.
+		presentation on the inovation in computers. I used swiper to create a unique experience.
 	</p>
 
 	<a href="/past-future">Check it out ></a>

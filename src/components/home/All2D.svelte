@@ -18,8 +18,8 @@
 	</div>
 	<p>
 		I've always wanted to create my own design tool. I'm currently working on my first prototype
-		that will combine the best vector and raster editing. The goal is to make working in 2d a lot
-		more fun and intuitive and unify the workflow.
+		that will combine the best of vector and raster editing. The goal is to make working in 2d a lot
+		more fun, intuitive and unify the workflow.
 	</p>
 </div>
 
