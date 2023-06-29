@@ -1,29 +1,26 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 </script>
 
 <div class="card">
 	<div class="top-group">
 		<div class="title">
 			<div class="circle">
-				<p>🖥️</p>
-				<!-- <img src={PaintBrushIcon} alt="Paint Brush Icon" /> -->
+				<p>🎨</p>
 			</div>
-			<h2>Past-Future</h2>
+			<h2>All2D</h2>
 		</div>
 		<h3>
-			<span style="color: #30A8FF">Typescript</span>
-			<!-- <span style="color: #FE9A00">Illustrator</span> -
-			<span style="color: #9A99FF">Premiere Pro</span> -
-			<span style=" color: #F24E1E">Figma</span> -->
+			<span style="color: #ffc131">Tauri</span> -
+			<span style="color: #ff3c00">Svelte</span> -
+			<span style="color: #2d79c7">Typescript</span> -
+			<span style="color: #960000">WebGL</span>
 		</h3>
 	</div>
 	<p>
-		Tech has moved so fast that many of us dont know how it started. Here is an interactive
-		presentation on the inovation in computers. This is an ongoing project that I will be adding to.
+		I've always wanted to create my own design tool. I'm currently working on my first prototype
+		that will combine the best vector and raster editing. The goal is to make working in 2d a lot
+		more fun and intuitive and unify the workflow.
 	</p>
-
-	<a href="/past-future">Check it out ></a>
 </div>
 
 <style>
@@ -60,6 +57,12 @@
 		font-weight: 500;
 	}
 
+	.title img {
+		width: 45px;
+		aspect-ratio: 1;
+		filter: drop-shadow(0px 0px 5px rgba(69, 180, 216, 0.3));
+	}
+
 	.title .circle {
 		width: 45px;
 		aspect-ratio: 1;
@@ -69,10 +72,6 @@
 		justify-content: center;
 		background-color: rgba(78, 196, 251, 0.325);
 		overflow: hidden;
-	}
-
-	.title img {
-		width: 55%;
 	}
 
 	h3 {

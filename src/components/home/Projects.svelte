@@ -5,6 +5,7 @@
 	import Ideas from './IdeasCard.svelte';
 	import Computers from './ComputersCard.svelte';
 	import StarsBackground from '../../assets/images/stars-background.png';
+	import All2 from './All2D.svelte';
 </script>
 
 <div class="white-transition" />
@@ -14,6 +15,7 @@
 		<GraphicDesign />
 		<Kubel />
 		<Computers />
+		<All2 />
 		<Ideas />
 	</div>
 	<img class="background" src={StarsBackground} alt="" />

@@ -10,8 +10,9 @@
 	import Docker from '../../assets/logos/docker.png';
 	import Tauri from '../../assets/logos/tauri.svg';
 	import Rust from '../../assets/logos/rust.png';
-	import Bevy from '../../assets/logos/bevy.svg';
 	import Electron from '../../assets/logos/electron.png';
+	import Nextjs from '../../assets/logos/nextjs.svg';
+	import WebGL from '../../assets/logos/webgl.png';
 	import Tool from './Tool.svelte';
 </script>
 
@@ -19,23 +20,25 @@
 	<div>
 		<h2>My Toolkit</h2>
 		<div class="wrapper">
-			<Tool img={Typescript} caption="TypeScript" color="#2d79c7" />
-			<Tool img={React} caption="React" color="#61dbfb" />
+			<Tool img={Nextjs} caption="Nextjs" color="#ffffff" />
 			<Tool img={Svelte} caption="SvelteKit 🤍" color="#ff3c00" />
+			<Tool img={React} caption="React" color="#61dbfb" />
 			<Tool img={Node} caption="Nodejs" color="#539e43" />
 			<Tool img={MongoDB} caption="MongoDB" color="#13aa52" />
+			<Tool img={Typescript} caption="TypeScript & Javascript" color="#2d79c7" />
 			<Tool img={GitHub} caption="GitHub" color="#ffffff" />
 			<Tool img={Vite} caption="Vite" color="#758fff" />
 			<Tool img={Docker} caption="Docker" color="#2496ed" />
-			<Tool img={Pixijs} caption="Pixijs" color="#e72264" />
+			<Tool img={Electron} caption="Electron" color="#2adbfa" />
 			<Tool img={Tauri} caption="Tauri" color="#ffc131" />
+			<!-- <Tool img={Pixijs} caption="Pixijs" color="#e72264" /> -->
 		</div>
 	</div>
 	<div>
 		<h2>Learning...</h2>
 		<div class="wrapper">
+			<Tool img={WebGL} caption="WebGL TWGL" color="#960000" />
 			<Tool img={Rust} caption="Rust" color="#90522d" />
-			<Tool img={Electron} caption="Electron" color="#2adbfa" />
 		</div>
 	</div>
 </div>
