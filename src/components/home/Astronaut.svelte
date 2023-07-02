@@ -16,7 +16,6 @@
 		'Have a project in mind?'
 	];
 	const randomText = [
-		'I farted',
 		'My favororite color is 🟧',
 		'Hey!',
 		'Gorilla army, ATTACK! 🦍🦍🦍🦍🦍🦍🦍🦍🦍🦍',
